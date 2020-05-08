@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
 import Image from "react-native-web/dist/exports/Image";
+import Expo from "expo";
 
 export default function App() {
   return (
-    <View>
+    <View style={styles.wrap}>
       <View style={styles.header}>
         <Text style={styles.title}>bSwole</Text>
       </View>
@@ -50,42 +51,44 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+    wrap: {
+        flex: 20,
+        alignItems: 'stretch',
+
+    },
     header: {
         flex: 1,
         backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 64,
-        padding: '1%',
     },
-
     title: {
         color: 'white',
-        fontStyle: 'bold',
-        fontFamily: 'Verdana',
+        fontStyle: 'normal',
         fontSize: 30,
     },
     main: {
+        flex: 16,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: '50%',
     },
     content: {
         color: 'red',
     },
     footer: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'row',
         backgroundColor: 'red',
-        alignItems: 'center',
+        alignItems: 'stretch',
+        alignContent: 'stretch',
         justifyContent: 'center',
         fontSize: 64,
         padding: '1%',
-        position: 'fixed',
-        bottom: 0,
         width: '100%',
     },
     buttonContainer: {
+        flex: 1,
         borderWidth: 5,
         borderStyle: 'solid',
         borderColor: 'white',
@@ -93,20 +96,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
-        flex: 1,
-        margin: '1%',
+        marginHorizontal: '1%',
     },
     button: {
+        padding: '10%',
         alignItems: 'center',
-        paddingVertical: 25,
-        paddingHorizontal: 75,
+        justifyContent: 'center',
     },
     buttonText: {
         fontSize: 60,
         color: 'red',
     },
     img: {
-        width: 128,
-        height: 128,
+        width: 64,
+        height: 64,
     }
 });
