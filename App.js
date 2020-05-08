@@ -1,17 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
 import Image from "react-native-web/dist/exports/Image";
 import Expo from "expo";
 
-
-
-function test(a) {
-    this.setState({page: a})
-}
-
 export default function App() {
-    const [count, setCount] = useState(0);
+    const [page, setPage] = useState("Home");
 
   return (
     <View style={styles.wrap}>
@@ -19,12 +13,12 @@ export default function App() {
         <Text style={styles.title}>bSwole</Text>
       </View>
       <View style={styles.main}>
-        <Text style={styles.content}>{ count }</Text>
+        <Text style={styles.content}>{ page }</Text>
       </View>
         <View style={styles.footer}>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => setCount(count + 1)}
+                    onPress={() => setPage("Lifts")}
                     style={styles.button}>
                     <Image source={require('./assets/arm.png')} style={styles.img}/>
                 </TouchableOpacity>
@@ -32,7 +26,7 @@ export default function App() {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => test("Times")}
+                    onPress={() => setPage("Times")}
                     style={styles.button}>
                     <Image source={require('./assets/stopwatch.png')} style={styles.img}/>
                 </TouchableOpacity>
@@ -40,7 +34,7 @@ export default function App() {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => test("Leaderboard")}
+                    onPress={() => setPage("Leaderboard")}
                     style={styles.button}>
                     <Image source={require('./assets/leaderboard.png')} style={styles.img}/>
                 </TouchableOpacity>
@@ -48,7 +42,7 @@ export default function App() {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => test("Friends")}
+                    onPress={() => setPage("Friends")}
                     style={styles.button}>
                     <Image source={require('./assets/friends.png')} style={styles.img}/>
                 </TouchableOpacity>
