@@ -21,7 +21,7 @@ function Lifts() {
     return (
         <View style={styles.wrap}>
             <View style={styles.main}>
-                <Text>lifts</Text>
+                <Image style={styles.img} source={require('./assets/arm.png')} />
             </View>
         </View>
     )
@@ -126,78 +126,13 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
 
     },
-    header: {
-        flex: 1,
-        backgroundColor: 'red',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 64,
-    },
-    title: {
-        color: 'white',
-        fontStyle: 'normal',
-        fontSize: 30,
-    },
     main: {
         flex: 16,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    content: {
-        color: 'red',
-    },
-    footer: {
-        flex: 2,
-        flexDirection: 'row',
-        backgroundColor: 'red',
-        alignItems: 'stretch',
-        alignContent: 'stretch',
-        justifyContent: 'center',
-        fontSize: 64,
-        padding: '1%',
-        width: '100%',
-    },
-    buttonContainer: {
-        flex: 1,
-        borderWidth: 5,
-        borderStyle: 'solid',
-        borderColor: 'white',
-        borderRadius: 25,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-        marginHorizontal: '1%',
-    },
-    button: {
-        paddingHorizontal: '30%',
-        paddingVertical: '15%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    buttonText: {
-        fontSize: 60,
-        color: 'red',
-    },
     img: {
         width: 64,
         height: 64,
     },
-    homeTitle: {
-        alignItems:'center',
-        width: '75%',
-        justifyContent: 'center',
-        alignContent: 'center',
-        backgroundColor: 'red',
-        textAlign: 'center',
-        borderWidth: 5,
-        borderStyle: 'solid',
-        borderColor: 'white',
-        borderRadius: 25,
-
-    },
-    homeTitleText: {
-        fontSize: 92,
-        color: 'white',
-        padding: '5%',
-    }
 });
