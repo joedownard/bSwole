@@ -1,82 +1,140 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
 import Image from "react-native-web/dist/exports/Image";
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Expo from "expo";
 
-export default function App() {
+const Stack = createStackNavigator();
 
-    const Home = () =>
-        <View style={styles.homeTitle}>
-            <Text style={styles.homeTitleText}>Welcome to bSwole!</Text>
-        </View>
-
-    const Lifts = () =>
-        <View style={styles.homeTitle}>
-            <Text style={styles.homeTitleText}>Lifts Page</Text>
-        </View>
-
-    const Times = () =>
-        <View style={styles.homeTitle}>
-            <Text style={styles.homeTitleText}>Times Page</Text>
-        </View>
-
-    const Leaderboards = () =>
-        <View style={styles.homeTitle}>
-            <Text style={styles.homeTitleText}>Leaderboards Page</Text>
-        </View>
-
-    const Friends = () =>
-        <View style={styles.homeTitle}>
-            <Text style={styles.homeTitleText}>Friends Page</Text>
-        </View>
-
-    const [page, setPage] = useState(Home());
-
-
-  return (
-    <View style={styles.wrap}>
-      <View style={styles.header}>
-        <Text style={styles.title}>bSwole</Text>
-      </View>
-      <View style={styles.main}>
-          { page }
-      </View>
-        <View style={styles.footer}>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    onPress={() => setPage(Lifts())}
-                    style={styles.button}>
-                    <Image source={require('./assets/arm.png')} style={styles.img}/>
-                </TouchableOpacity>
+function Home() {
+    return (
+        <View style={styles.wrap}>
+            <View style={styles.main}>
+                <Text>fuck</Text>
             </View>
+            { Foot() }
+        </View>);
+}
 
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    onPress={() => setPage(Times())}
-                    style={styles.button}>
-                    <Image source={require('./assets/stopwatch.png')} style={styles.img}/>
-                </TouchableOpacity>
+function Lifts() {
+    return (
+        <View style={styles.wrap}>
+            <View style={styles.main}>
+                <Text>lifts</Text>
             </View>
-
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    onPress={() => setPage(Leaderboards())}
-                    style={styles.button}>
-                    <Image source={require('./assets/leaderboard.png')} style={styles.img}/>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                    onPress={() => setPage(Friends())}
-                    style={styles.button}>
-                    <Image source={require('./assets/friends.png')} style={styles.img}/>
-                </TouchableOpacity>
-            </View>
+            { Foot() }
         </View>
-    </View>
-  );
+    )
+}
+
+function Times() {
+    return (
+        <View style={styles.wrap}>
+            <View style={styles.main}>
+                <Text>times</Text>
+            </View>
+            { Foot() }
+        </View>
+    )
+}
+
+function Leaderboard() {
+    return (
+        <View style={styles.wrap}>
+            <View style={styles.main}>
+                <Text>leaderboard</Text>
+            </View>
+            { Foot() }
+        </View>
+    )
+}
+
+function Friends() {
+    return (
+        <View style={styles.wrap}>
+            <View style={styles.main}>
+                <Text>Friends</Text>
+            </View>
+            { Foot() }
+        </View>
+    )
+}
+
+function Foot() {
+    return(<View style={styles.footer}>
+        <View style={styles.buttonContainer}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Details')}
+                style={styles.button}>
+                <Image source={require('./assets/arm.png')} style={styles.img}/>
+            </TouchableOpacity>
+        </View>
+
+        <View style={styles.buttonContainer}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Details')}
+                style={styles.button}>
+                <Image source={require('./assets/stopwatch.png')} style={styles.img}/>
+            </TouchableOpacity>
+        </View>
+
+        <View style={styles.buttonContainer}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Details')}
+                style={styles.button}>
+                <Image source={require('./assets/leaderboard.png')} style={styles.img}/>
+            </TouchableOpacity>
+        </View>
+
+        <View style={styles.buttonContainer}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Details')}
+                style={styles.button}>
+                <Image source={require('./assets/friends.png')} style={styles.img}/>
+            </TouchableOpacity>
+        </View>
+    </View>);
+}
+
+const Profile = () =>
+    <View><Text>Profile</Text></View>
+
+export default class App extends Component {
+
+    render() {
+        return (
+            <NavigationContainer>
+                <Tab.Navigator>
+                    <Tab.Screen
+                        name="Home"
+                        component={Home}
+                    />
+                    <Tab.Screen
+                        name="Lifts"
+                        component={Lifts}
+                    />
+                    <Tab.Screen
+                        name="Times"
+                        component={Times}
+                    />
+                    <Tab.Screen
+                        name="Leaderboard"
+                        component={Leaderboard}
+                    />
+                    <Tab.Screen
+                        name="Friends"
+                        component={Friends}
+                    />
+                </Tab.Navigator>
+            </NavigationContainer>
+        );
+    }
+
+
 }
 
 const styles = StyleSheet.create({
