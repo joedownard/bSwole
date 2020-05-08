@@ -5,7 +5,34 @@ import Image from "react-native-web/dist/exports/Image";
 import Expo from "expo";
 
 export default function App() {
-    const [page, setPage] = useState("Home");
+
+    const Home = () =>
+        <View style={styles.homeTitle}>
+            <Text style={styles.homeTitleText}>Welcome to bSwole!</Text>
+        </View>
+
+    const Lifts = () =>
+        <View style={styles.homeTitle}>
+            <Text style={styles.homeTitleText}>Lifts Page</Text>
+        </View>
+
+    const Times = () =>
+        <View style={styles.homeTitle}>
+            <Text style={styles.homeTitleText}>Times Page</Text>
+        </View>
+
+    const Leaderboards = () =>
+        <View style={styles.homeTitle}>
+            <Text style={styles.homeTitleText}>Leaderboards Page</Text>
+        </View>
+
+    const Friends = () =>
+        <View style={styles.homeTitle}>
+            <Text style={styles.homeTitleText}>Friends Page</Text>
+        </View>
+
+    const [page, setPage] = useState(Home());
+
 
   return (
     <View style={styles.wrap}>
@@ -13,12 +40,12 @@ export default function App() {
         <Text style={styles.title}>bSwole</Text>
       </View>
       <View style={styles.main}>
-        <Text style={styles.content}>{ page }</Text>
+          { page }
       </View>
         <View style={styles.footer}>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => setPage("Lifts")}
+                    onPress={() => setPage(Lifts())}
                     style={styles.button}>
                     <Image source={require('./assets/arm.png')} style={styles.img}/>
                 </TouchableOpacity>
@@ -26,7 +53,7 @@ export default function App() {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => setPage("Times")}
+                    onPress={() => setPage(Times())}
                     style={styles.button}>
                     <Image source={require('./assets/stopwatch.png')} style={styles.img}/>
                 </TouchableOpacity>
@@ -34,7 +61,7 @@ export default function App() {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => setPage("Leaderboard")}
+                    onPress={() => setPage(Leaderboards())}
                     style={styles.button}>
                     <Image source={require('./assets/leaderboard.png')} style={styles.img}/>
                 </TouchableOpacity>
@@ -42,7 +69,7 @@ export default function App() {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity
-                    onPress={() => setPage("Friends")}
+                    onPress={() => setPage(Friends())}
                     style={styles.button}>
                     <Image source={require('./assets/friends.png')} style={styles.img}/>
                 </TouchableOpacity>
@@ -101,7 +128,8 @@ const styles = StyleSheet.create({
         marginHorizontal: '1%',
     },
     button: {
-        padding: '10%',
+        paddingHorizontal: '30%',
+        paddingVertical: '15%',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -112,5 +140,23 @@ const styles = StyleSheet.create({
     img: {
         width: 64,
         height: 64,
+    },
+    homeTitle: {
+        alignItems:'center',
+        width: '75%',
+        justifyContent: 'center',
+        alignContent: 'center',
+        backgroundColor: 'red',
+        textAlign: 'center',
+        borderWidth: 5,
+        borderStyle: 'solid',
+        borderColor: 'white',
+        borderRadius: 25,
+
+    },
+    homeTitleText: {
+        fontSize: 92,
+        color: 'white',
+        padding: '5%',
     }
 });
