@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
+import Image from "react-native-web/dist/exports/Image";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('1')}
                     style={styles.button}>
-                    <Text style={styles.buttonText}>1</Text>
+                    <Image source={require('./assets/arm.png')} style={styles.img}/>
                 </TouchableOpacity>
             </View>
 
@@ -24,7 +25,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('2')}
                     style={styles.button}>
-                    <Text style={styles.buttonText}>2</Text>
+                    <Image source={require('./assets/stopwatch.png')} style={styles.img}/>
                 </TouchableOpacity>
             </View>
 
@@ -32,7 +33,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('3')}
                     style={styles.button}>
-                    <Text style={styles.buttonText}>3</Text>
+                    <Image source={require('./assets/leaderboard.png')} style={styles.img}/>
                 </TouchableOpacity>
             </View>
 
@@ -40,7 +41,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('4')}
                     style={styles.button}>
-                    <Text style={styles.buttonText}>4</Text>
+                    <Image source={require('./assets/friends.png')} style={styles.img}/>
                 </TouchableOpacity>
             </View>
         </View>
@@ -97,11 +98,15 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
-        paddingVertical: 50,
+        paddingVertical: 25,
         paddingHorizontal: 75,
     },
     buttonText: {
         fontSize: 60,
         color: 'red',
+    },
+    img: {
+        width: 128,
+        height: 128,
     }
 });
