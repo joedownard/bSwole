@@ -20,7 +20,9 @@
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "~2.2.0",
     "react-native-web": "~0.11.7",
-    "realm": "^5.0.4"
+    "realm": "^5.0.4",
+    "undefined": "@expo/vector-icons/Ionicons",
+    "@expo/vector-icons": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

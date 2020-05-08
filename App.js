@@ -1,14 +1,12 @@
-import React, { useState, Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import Image from "react-native-web/dist/exports/Image";
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Expo from "expo";
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { AntDesign } from '@expo/vector-icons';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function Home() {
     return (
@@ -16,7 +14,6 @@ function Home() {
             <View style={styles.main}>
                 <Text>fuck</Text>
             </View>
-            { Foot() }
         </View>);
 }
 
@@ -26,7 +23,6 @@ function Lifts() {
             <View style={styles.main}>
                 <Text>lifts</Text>
             </View>
-            { Foot() }
         </View>
     )
 }
@@ -37,7 +33,6 @@ function Times() {
             <View style={styles.main}>
                 <Text>times</Text>
             </View>
-            { Foot() }
         </View>
     )
 }
@@ -48,7 +43,6 @@ function Leaderboard() {
             <View style={styles.main}>
                 <Text>leaderboard</Text>
             </View>
-            { Foot() }
         </View>
     )
 }
@@ -59,56 +53,47 @@ function Friends() {
             <View style={styles.main}>
                 <Text>Friends</Text>
             </View>
-            { Foot() }
         </View>
     )
 }
-
-function Foot() {
-    return(<View style={styles.footer}>
-        <View style={styles.buttonContainer}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Details')}
-                style={styles.button}>
-                <Image source={require('./assets/arm.png')} style={styles.img}/>
-            </TouchableOpacity>
-        </View>
-
-        <View style={styles.buttonContainer}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Details')}
-                style={styles.button}>
-                <Image source={require('./assets/stopwatch.png')} style={styles.img}/>
-            </TouchableOpacity>
-        </View>
-
-        <View style={styles.buttonContainer}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Details')}
-                style={styles.button}>
-                <Image source={require('./assets/leaderboard.png')} style={styles.img}/>
-            </TouchableOpacity>
-        </View>
-
-        <View style={styles.buttonContainer}>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Details')}
-                style={styles.button}>
-                <Image source={require('./assets/friends.png')} style={styles.img}/>
-            </TouchableOpacity>
-        </View>
-    </View>);
-}
-
-const Profile = () =>
-    <View><Text>Profile</Text></View>
 
 export default class App extends Component {
 
     render() {
         return (
             <NavigationContainer>
-                <Tab.Navigator>
+                <Tab.Navigator
+                    screenOptions={({route}) => ({
+                        tabBarIcon: ({focused, color, size}) => {
+                            let iconName;
+
+                            if (route.name === 'Home') {
+                                iconName = focused
+                                    ? 'home'
+                                    : 'home';
+                            } else if (route.name === 'Lifts') {
+                                iconName = focused ? 'linechart' : 'linechart';
+                            }
+                            else if (route.name === 'Times') {
+                                iconName = focused ? 'clockcircleo' : 'clockcircleo';
+                            }
+                            else if (route.name === 'Leaderboard') {
+                                iconName = focused ? 'Trophy' : 'Trophy';
+                            }
+                            else if (route.name === 'Friends') {
+                                iconName = focused ? 'team' : 'team';
+                            }
+
+                            return <AntDesign name={iconName} size={size} color={color}/>;
+                        },
+                    })}
+                    tabBarOptions={{
+                        inactiveBackgroundColor: 'white',
+                        activeBackgroundColor: 'red',
+                        activeTintColor: 'white',
+                        inactiveTintColor: 'red',
+                    }}
+                >
                     <Tab.Screen
                         name="Home"
                         component={Home}
@@ -130,11 +115,9 @@ export default class App extends Component {
                         component={Friends}
                     />
                 </Tab.Navigator>
-            </NavigationContainer>
-        );
+            </NavigationContainer>);
+
     }
-
-
 }
 
 const styles = StyleSheet.create({
