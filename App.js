@@ -7,9 +7,12 @@ export default function App() {
       <View style={styles.header}>
         <Text style={styles.title}>bSwole</Text>
       </View>
-      <View style={styles.content}>
-        <Text style={styles.title}>content</Text>
+      <View style={styles.main}>
+        <Text style={styles.content}>content</Text>
       </View>
+        <View style={styles.footer}>
+            <Text style={styles.title}>Buttons</Text>
+        </View>
     </View>
   );
 }
@@ -17,19 +20,36 @@ export default function App() {
 const styles = StyleSheet.create({
     header: {
         flex: 1,
+        backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
+        fontSize: 64,
+        padding: '2%',
     },
 
     title: {
-        color: 'red',
+        color: 'white',
         fontStyle: 'bold',
         fontFamily: 'Verdana',
         fontSize: 30,
     },
-    content: {
+    main: {
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: '50%',
+    },
+    content: {
+        color: 'red',
+    },
+    footer: {
+        flex: 1,
+        backgroundColor: 'red',
+        alignItems: 'center',
+        justifyContent: 'bottom',
+        fontSize: 64,
+        padding: '10%',
+        position: 'fixed',
+        bottom: 0,
+        width: '100%',
     },
 });
