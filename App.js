@@ -16,7 +16,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('1')}
                     style={styles.button}>
-                    <Text style={{ fontSize: 20, color: 'red' }}>1</Text>
+                    <Text style={styles.buttonText}>1</Text>
                 </TouchableOpacity>
             </View>
 
@@ -24,7 +24,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('2')}
                     style={styles.button}>
-                    <Text style={{ fontSize: 20, color: 'red' }}>2</Text>
+                    <Text style={styles.buttonText}>2</Text>
                 </TouchableOpacity>
             </View>
 
@@ -32,7 +32,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('3')}
                     style={styles.button}>
-                    <Text style={{ fontSize: 20, color: 'red' }}>3</Text>
+                    <Text style={styles.buttonText}>3</Text>
                 </TouchableOpacity>
             </View>
 
@@ -40,7 +40,7 @@ export default function App() {
                 <TouchableOpacity
                     onPress={() => alert('4')}
                     style={styles.button}>
-                    <Text style={{ fontSize: 20, color: 'red' }}>4</Text>
+                    <Text style={styles.buttonText}>4</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -85,6 +85,10 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     buttonContainer: {
+        borderWidth: 5,
+        borderStyle: 'solid',
+        borderColor: 'white',
+        borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
@@ -92,8 +96,12 @@ const styles = StyleSheet.create({
         margin: '1%',
     },
     button: {
-        backgroundColor: 'white',
         alignItems: 'center',
-        padding: 75,
+        paddingVertical: 50,
+        paddingHorizontal: 75,
+    },
+    buttonText: {
+        fontSize: 60,
+        color: 'red',
     }
 });
