@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
 
 export default function App() {
   return (
@@ -11,7 +12,37 @@ export default function App() {
         <Text style={styles.content}>content</Text>
       </View>
         <View style={styles.footer}>
-            <Text style={styles.title}>Buttons</Text>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    onPress={() => alert('1')}
+                    style={styles.button}>
+                    <Text style={{ fontSize: 20, color: 'red' }}>1</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    onPress={() => alert('2')}
+                    style={styles.button}>
+                    <Text style={{ fontSize: 20, color: 'red' }}>2</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    onPress={() => alert('3')}
+                    style={styles.button}>
+                    <Text style={{ fontSize: 20, color: 'red' }}>3</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    onPress={() => alert('4')}
+                    style={styles.button}>
+                    <Text style={{ fontSize: 20, color: 'red' }}>4</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     </View>
   );
@@ -43,13 +74,26 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 1,
+        flexDirection: 'row',
         backgroundColor: 'red',
         alignItems: 'center',
-        justifyContent: 'bottom',
+        justifyContent: 'center',
         fontSize: 64,
-        padding: '8%',
+        padding: '1%',
         position: 'fixed',
         bottom: 0,
         width: '100%',
     },
+    buttonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        flex: 1,
+        margin: '1%',
+    },
+    button: {
+        backgroundColor: 'white',
+        alignItems: 'center',
+        padding: 75,
+    }
 });
