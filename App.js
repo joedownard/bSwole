@@ -21,7 +21,7 @@ function Lifts() {
     return (
         <View style={styles.wrap}>
             <View style={styles.main}>
-                <Image style={styles.img} source={require('./assets/arm.png')} />
+                <Text>Lifts</Text>
             </View>
         </View>
     )
