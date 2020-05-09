@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import Image from "react-native-web/dist/exports/Image";
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -27,31 +26,11 @@ function Lifts() {
     )
 }
 
-function Times() {
+function You() {
     return (
         <View style={styles.wrap}>
             <View style={styles.main}>
-                <Text>times</Text>
-            </View>
-        </View>
-    )
-}
-
-function Leaderboard() {
-    return (
-        <View style={styles.wrap}>
-            <View style={styles.main}>
-                <Text>leaderboard</Text>
-            </View>
-        </View>
-    )
-}
-
-function Friends() {
-    return (
-        <View style={styles.wrap}>
-            <View style={styles.main}>
-                <Text>Friends</Text>
+                <Text>You</Text>
             </View>
         </View>
     )
@@ -63,6 +42,7 @@ export default class App extends Component {
         return (
             <NavigationContainer>
                 <Tab.Navigator
+                    initialRouteName={ 'Home' }
                     screenOptions={({route}) => ({
                         tabBarIcon: ({focused, color, size}) => {
                             let iconName;
@@ -74,13 +54,7 @@ export default class App extends Component {
                             } else if (route.name === 'Lifts') {
                                 iconName = focused ? 'linechart' : 'linechart';
                             }
-                            else if (route.name === 'Times') {
-                                iconName = focused ? 'clockcircleo' : 'clockcircleo';
-                            }
-                            else if (route.name === 'Leaderboard') {
-                                iconName = focused ? 'Trophy' : 'Trophy';
-                            }
-                            else if (route.name === 'Friends') {
+                            else if (route.name === 'You') {
                                 iconName = focused ? 'team' : 'team';
                             }
 
@@ -95,24 +69,16 @@ export default class App extends Component {
                     }}
                 >
                     <Tab.Screen
-                        name="Home"
-                        component={Home}
-                    />
-                    <Tab.Screen
                         name="Lifts"
                         component={Lifts}
                     />
                     <Tab.Screen
-                        name="Times"
-                        component={Times}
+                        name="Home"
+                        component={Home}
                     />
                     <Tab.Screen
-                        name="Leaderboard"
-                        component={Leaderboard}
-                    />
-                    <Tab.Screen
-                        name="Friends"
-                        component={Friends}
+                        name="You"
+                        component={You}
                     />
                 </Tab.Navigator>
             </NavigationContainer>);
