@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TextInput} from 'react-native';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { AntDesign } from '@expo/vector-icons';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -26,11 +27,49 @@ function Lifts() {
     )
 }
 
+const user = {
+    username: "",
+    email: "",
+    pass: "",
+    cpass: "",
+}
+
+function register() {
+    return(
+    <View style={styles.container}>
+        <TextInput
+            value={username}
+            style={styles.textInput}
+            placeholder={'Username'}
+            onChangeText={(username) => this.setState({ username })}
+        />
+        <TextInput
+            value={email}
+            style={styles.textInput}
+            placeholder={'Email'}
+            onChangeText={(email) => this.setState({ email })}
+        />
+        <TextInput
+            value={pass}
+            style={styles.textInput}
+            placeholder={'Password'}
+            secureTextEntry={true}
+            onChangeText={(pass) => this.setState({ pass })}
+        />
+        <TextInput
+        value={cpass}
+        style={styles.textInput}
+        placeholder={'Confirm password'}
+        secureTextEntry={true}
+        onChangeText={(email) => this.setState({ cpass })}
+        />
+    </View>);
+}
 function You() {
     return (
         <View style={styles.wrap}>
             <View style={styles.main}>
-                <Text>You</Text>
+                { register() }
             </View>
         </View>
     )
@@ -101,4 +140,14 @@ const styles = StyleSheet.create({
         width: 64,
         height: 64,
     },
+    container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    textInput: {
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: 'gray',
+        margin: '1%',
+    }
 });
